@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <nav>
+        <h2>MEDKIT</h2>
+    </nav>
+    <header>
+        <h1>LOGIN</h1>
+    </header>
+
+    <div class="container">
+        <form id="form">
+            <label for="cpf" id="cpfLabel">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+            <label for="senha" id="senhaLabel">SENHA:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <button type="submit" id="entrar">Entrar</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <a id="cadastro" href="cadastro.html">Não tenho cadastro</a>
+    <a id="esqueciSenha" href="esqueciSenha">Esqueci minha senha</a>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

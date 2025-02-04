@@ -1,0 +1,55 @@
+-- Database 
+
+ CREATE DATABASE medkit;
+
+-- Tabela de usuários
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    cpf VARCHAR(14) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    genero ENUM('M', 'F', 'O') NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefone VARCHAR(15) NOT NULL,
+    endereco_completo TEXT NOT NULL
+);
+
+-- Tabela de alarmes
+CREATE TABLE alarmes (
+    id_alarme INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    horario TIME NOT NULL,
+    dias_semana VARCHAR(7) NOT NULL,
+    nome_remedio VARCHAR(100) NOT NULL,
+    som_alarme VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+);
+
+-- Tabela de alergias
+CREATE TABLE alergias (
+    id_alergia INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    tipo ENUM('Alimento', 'Medicamento') NOT NULL,
+    descricao TEXT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+);
+
+-- Tabela de receitas
+CREATE TABLE receitas (
+    id_receita INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    nome_medicamento VARCHAR(100) NOT NULL,
+    validade DATE NOT NULL,
+    anexo_receita VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+);
+
+-- Tabela de vacinas
+CREATE TABLE vacinas (
+    id_vacina INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    nome_vacina VARCHAR(100) NOT NULL,
+    data_aplicacao DATE NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+);

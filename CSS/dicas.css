@@ -1,0 +1,188 @@
+/* Estilo geral */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #87ceeb;
+    color: black;
+    padding: 30px 20px;
+    border-bottom-left-radius: 150%;
+    border-bottom-right-radius: 150%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin-left: -50%;
+}
+
+#logo {
+    flex: 1;
+    margin-left: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:14px;
+}
+
+#logo h1 {
+    font-size: 200%;
+    font-weight: bold;
+    margin: 0;
+}
+
+#back {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#back button {
+    background-color: transparent;
+    border-radius: 50%;
+    width: 35px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+#back img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilo para o nav (similar ao cabeçalho "DICAS") */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #87ceeb; 
+    color: black;
+    padding: 30px 20px;
+    border-bottom-left-radius: 150%;
+    border-bottom-right-radius: 150%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+nav h1 {
+    font-size: 24%;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+nav button {
+    background-color: transparent;
+    display:flex;
+    cursor: pointer;
+}
+
+nav img {
+    width: 24%;
+    height: 24%;
+    display: block;
+}
+
+/* Estilo da seção */
+section {
+    width: 90%; /* Ajusta a largura inicial */
+    max-width: 800px; /* Define largura máxima para telas maiores */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center; /* Centraliza texto e imagens */
+    box-sizing: border-box;
+    margin: 20px 0; 
+}
+
+.receitas, .atividades {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Estilo do menu de navegação */
+#menu {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+#menu a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#menu a:hover {
+    background-color: #f0f0f0;
+}
+
+@media screen and (max-width: 768px) {
+    .body {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #logo h1 {
+        font-size: 200%;
+    }
+
+    #back {
+        margin-left: 3%; 
+        margin-top: -1%;
+    }
+
+    nav {
+        padding: 15px 10px;
+        border-bottom-left-radius: 50%; 
+        border-bottom-right-radius: 50%;
+    }
+}

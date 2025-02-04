@@ -1,0 +1,75 @@
+{
+  "database": "medkit",
+  "tables": [
+    {
+      "name": "usuarios",
+      "columns": {
+        "id_usuario": "INT AUTO_INCREMENT PRIMARY KEY",
+        "cpf": "VARCHAR(14) NOT NULL",
+        "senha": "VARCHAR(255) NOT NULL",
+        "nome": "VARCHAR(100) NOT NULL",
+        "data_nascimento": "DATE NOT NULL",
+        "genero": "ENUM('M', 'F', 'O') NOT NULL",
+        "email": "VARCHAR(100) NOT NULL",
+        "telefone": "VARCHAR(15) NOT NULL",
+        "endereco_completo": "TEXT NOT NULL"
+      },
+      "rows": []
+    },
+    {
+      "name": "alarmes",
+      "columns": {
+        "id_alarme": "INT AUTO_INCREMENT PRIMARY KEY",
+        "id_usuario": "INT NOT NULL",
+        "horario": "TIME NOT NULL",
+        "dias_semana": "VARCHAR(7) NOT NULL",
+        "nome_remedio": "VARCHAR(100) NOT NULL",
+        "som_alarme": "VARCHAR(255) NOT NULL"
+      },
+      "foreign_keys": {
+        "id_usuario": "REFERENCES suarios(id_usuario)"
+      },
+      "rows": []
+    },
+    {
+      "name": "alergias",
+      "columns": {
+        "id_alergia": "INT AUTO_INCREMENT PRIMARY KEY",
+        "id_usuario": "INT NOT NULL",
+        "tipo": "ENUM('Alimento', 'Medicamento') NOT NULL",
+        "descricao": "TEXT NOT NULL"
+      },
+      "foreign_keys": {
+        "id_usuario": "REFERENCES usuarios(id_usuario)"
+      },
+      "rows": []
+    },
+    {
+      "name": "receitas",
+      "columns": {
+        "id_receita": "INT AUTO_INCREMENT PRIMARY KEY",
+        "id_usuario": "INT NOT NULL",
+        "nome_medicamento": "VARCHAR(100) NOT NULL",
+        "validade": "DATE NOT NULL",
+        "anexo_receita": "VARCHAR(255) NOT NULL"
+      },
+      "foreign_keys": {
+        "id_usuario": "REFERENCES usuarios(id_usuario)"
+      },
+      "rows": []
+    },
+    {
+      "name": "vacinas",
+      "columns": {
+        "id_vacina": "INT AUTO_INCREMENT PRIMARY KEY",
+        "id_usuario": "INT NOT NULL",
+        "nome_vacina": "VARCHAR(100) NOT NULL",
+        "data_aplicacao": "DATE NOT NULL"
+      },
+      "foreign_keys": {
+        "id_usuario": "REFERENCES usuarios(id_usuario)"
+      },
+      "rows": []
+    }
+  ]
+}

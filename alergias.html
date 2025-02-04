@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico do Paciente</title>
+    <link rel="stylesheet" href="../CSS/alergias.css">
+</head>
+<body>
+    <nav>
+        <h2>MEDKIT</h2>
+    </nav>
+    <header>
+        <h1>Alergias</h1>
+    </header>
+    <div class="container">
+        <form id="historico-form">
+            <div class="input-group">
+                <label for="condicoes">Condições de Saúde:</label>
+                <textarea id="condicoes" name="condicoes" rows="3" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="alergias">Alergias:</label>
+                <textarea id="alergias" name="alergias" rows="3" required></textarea>
+            </div>
+            <button type="submit">SALVAR</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const condicoes = document.getElementById("condicoes")
+            const alergias = document.getElementById("alergias")
+            document.getElementById("historico-form").addEventListener("submit", async function(event) {
+                event.preventDefault();
+
+                await fetch("http://localhost:3000/historico", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ condicoes, alergias, id_usuario })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert("Histórico salvo com sucesso!");
+                    document.getElementById("historico-form").reset();
+                })
+                .catch(err => {
+                    alert("Erro ao salvar.", err);
+                })
+            });
+        })
+    </script>
+</body>
+</html>
