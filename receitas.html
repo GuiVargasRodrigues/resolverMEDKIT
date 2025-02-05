@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h2>MEDKIT</h2>
+    </nav>
+    <header>
+        <h1>Receitas</h1>
+    </header>
+    <div class="container">
+        <form id="receita-form" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="nome_medicamento">Nome do Medicamento:</label>
+                <input type="text" id="nome_medicamento" name="nome_medicamento" required>
+            </div>
+            <div class="input-group">
+                <label for="validade">Data da Validade:</label>
+                <input type="date" id="validade" name="validade" required>
+            </div>
+            <div class="input-group">
+                <label for="anexo-receita">Anexo da Receita:</label>
+                <input type="file" id="anexo-receita" name="anexo-receita" required>
+            </div>
+            <button type="submit">INCLUIR RECEITA</button>
+        </form>
+
+        <!-- Exibição da lista de receitas -->
+        <ul id="lista-exames"></ul>
+    </div>
+
+    <script src="receitas.js"></script>
+</body>
+</html>
